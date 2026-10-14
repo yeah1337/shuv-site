@@ -1,0 +1,142 @@
+<!doctype html>
+<!--
+  SHUV SITE: privacy policy (privacy.html)
+  One responsive file for phone AND desktop. The phone layout is the default and
+  css/shuv.css switches to the desktop layout at 900px wide. There are no separate mobile files.
+  Shared across all 3 pages: header, phone menu and footer (marked below; keep them in sync),
+  plus css/shuv.css and js/shuv.js.
+  Must stay reachable at a stable public URL: both app stores require it before review.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy policy | Shuv</title>
+  <meta name="description" content="What Shuv collects, why, and what you can do about it.">
+  <meta name="theme-color" content="#ffffff">
+  <!-- The canonical link and og:url must be absolute, so they name the
+       domain directly. If it ever changes, these and the addresses in the
+       footer are the places to look. -->
+  <link rel="canonical" href="https://shuvskate.com/privacy.html">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <!-- People find Shuv through shared clips, so the share card is worth
+       composing rather than letting a platform pick an image off the page. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Shuv">
+  <meta property="og:title" content="Privacy policy | Shuv">
+  <meta property="og:description" content="What Shuv collects, why, and what you can do about it.">
+  <meta property="og:url" content="https://shuvskate.com/privacy.html">
+  <meta property="og:image" content="https://shuvskate.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/Michroma-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/shuv.css">
+  <script src="js/shuv.js" defer></script>
+</head>
+<body>
+<div class="page" id="top">
+
+  <!-- ===== HEADER: repeated on all 3 pages. Keep them in sync. =====================
+       On index.html the links are #sections; on the legal pages they are index.html#sections.
+       Phone: logo centred + hamburger on the right. Desktop (900px+): logo left, text links right. -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="index.html"><img src="assets/logo.svg" alt="Shuv, advance skate technology" width="440" height="89"></a>
+      <nav class="nav-desktop" aria-label="Main">
+        <a class="jello" href="index.html">home</a>
+        <a class="jello" href="index.html#tutorial">tutorial</a>
+        <a class="jello" href="index.html#pro">pro</a>
+        <a class="jello" href="index.html#safety">safety</a>
+        <a class="jello" href="index.html#contact">contact</a>
+        <a class="jello" href="privacy.html" aria-current="page">privacy</a>
+        <a class="jello" href="terms.html">TOS</a>
+      </nav>
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- ===== PHONE MENU: repeated on all 3 pages. ===================================
+       Slides in from the right when the hamburger is tapped (js/shuv.js, part 5). Hidden on desktop.
+       The backdrop is invisible; it only catches taps outside the menu to close it. -->
+  <div class="menu-backdrop" data-menu-close></div>
+  <div class="menu" id="menu" role="dialog" aria-label="Menu" aria-hidden="true" tabindex="-1">
+    <nav class="menu__nav" aria-label="Menu">
+      <a class="jello" href="index.html" data-menu-close>home</a>
+      <a class="jello" href="index.html#tutorial" data-menu-close>tutorial</a>
+      <a class="jello" href="index.html#pro" data-menu-close>pro</a>
+      <a class="jello" href="index.html#safety" data-menu-close>safety</a>
+      <a class="jello" href="index.html#contact" data-menu-close>contact</a>
+      <a class="jello" href="privacy.html" data-menu-close aria-current="page">privacy</a>
+      <a class="jello" href="terms.html" data-menu-close>TOS</a>
+    </nav>
+    <button class="menu__close jello" type="button" data-menu-close>close</button>
+  </div>
+
+  <main id="main">
+    <!-- ===== PRIVACY POLICY ============================================================
+         Stable public URL for App Store Connect and Google Play Console:
+         https://YOUR-DOMAIN/privacy.html   Don't rename or move this file once it has been submitted. -->
+    <section class="doc-page">
+      <h1 class="outline outline--pink doc-page__title">Privacy</h1>
+      <div class="rule doc-page__rule"></div>
+      <div class="doc">
+        <!-- Operator filled in 7 Oct 2026 from the Maryland formation record.
+             Work still outstanding on this page is tracked in the app repo,
+             not here: this file is served to the public. -->
+        <p class="doc__date">Last updated: September 2nd 2026</p>
+        <p>This policy explains what Shuv collects, why, and what you can do about it. Shuv is operated by Shuv LLC, 306 W Redwood St, Ste 201, Baltimore, MD 21201, USA ("we", "us"). If anything here is unclear, write to <a href="mailto:privacy@shuvskate.com">privacy@shuvskate.com</a>.</p>
+        <h2>1. The short version</h2>
+        <p>Pose detection runs entirely on your device. Your camera feed and your video clips are processed on your phone and are not uploaded to us. We hold a small account record so your streak, scores and friends list work across sessions, plus basic diagnostics to keep the app from crashing.</p>
+        <h2>2. Camera and video</h2>
+        <p>Shuv needs camera access to grade a trick. While a session is running, the app keeps a rolling buffer of roughly the last thirty seconds of video in your device's memory so you can save a clip after you land. Frames are analysed on device to estimate pop, slide and height. Nothing in that buffer is transmitted to us, and the buffer is discarded when you leave the session or save over it. A clip only leaves your phone if you choose to save it to your camera roll or share it to another app, at which point that app's own terms and privacy policy apply. You can revoke camera access at any time in your device settings, though the app cannot grade tricks without it.</p>
+        <h2>3. What we do collect</h2>
+        <ul>
+          <li><strong>Account details.</strong> Your display name, an email address or third party sign in identifier, and your password in hashed form if you create one.</li>
+          <li><strong>Progress data.</strong> Session scores, trick grades, streak length, freezes held, combo records, and timestamps for those sessions.</li>
+          <li><strong>Social data.</strong> Your friends list and the entries you appear as on friends leaderboards. Only people you have added can see your leaderboard entry.</li>
+          <li><strong>Device and diagnostic data.</strong> Device model, operating system version, app version, language, crash reports and basic performance metrics.</li>
+          <li><strong>Support correspondence.</strong> Anything you send us by email, kept so we can answer you.</li>
+        </ul>
+        <p>We do not sell your personal data, we do not run third party advertising in Shuv, and we do not use your data to build advertising profiles.</p>
+        <h2>4. Why we use it</h2>
+        <p>To run your account and keep your progress in sync, to show leaderboards to the friends you have added, to send the notifications you have opted into, to diagnose crashes and improve how grading behaves across devices, to prevent abuse and cheating, and to comply with legal obligations. Where the law requires a legal basis, we rely on performance of our contract with you for account and progress data, your consent for notifications and camera access, and our legitimate interests for diagnostics, security and product improvement.</p>
+        <h2>5. Payments</h2>
+        <p>Shuv Pro and streak freezes are bought through Apple's App Store or Google Play. <strong>Those purchases are processed entirely by Apple or Google. We never see, receive or store your card number, billing address or any other payment details.</strong></p>
+        <p>What we do receive from the store is a purchase token, which our server checks with Apple or Google to confirm the purchase is genuine. From that we keep a record against your account of which tier you are on, when it expires, and the token itself so the same purchase cannot be used twice. That is all — there is no payment information in it.</p>
+        <h2>6. Who we share it with</h2>
+        <p>Service providers who host our backend, deliver notifications and collect crash reports, acting on our instructions under contract. Other Shuv users, limited to the profile name and leaderboard figures visible to friends you have added. Authorities, where we are legally required to disclose. A successor, if the business is sold, in which case we will tell you before your data moves.</p>
+        <h2>7. Retention</h2>
+        <p>Account and progress data is kept while your account is open. Delete your account in the app and we remove or anonymise it within 30 days, except where we must keep records for legal or accounting reasons. Diagnostic data is kept for up to 12 months. Support email is kept for up to 24 months.</p>
+        <h2>8. Your rights</h2>
+        <p>Depending on where you live, you may have the right to access a copy of your data, correct it, delete it, restrict or object to certain processing, withdraw consent, and receive your data in a portable format. If you are in the UK or the EEA you may also complain to your local data protection authority. If you are in California you may request disclosure of the categories of data we collect and ask us to delete it, and we will not discriminate against you for asking. To exercise any of this, email <a href="mailto:privacy@shuvskate.com">privacy@shuvskate.com</a> and we will respond within 30 days.</p>
+        <h2>9. Age limit</h2>
+        <p>Shuv is for people aged 13 and over. We do not knowingly collect personal data from children under 13. If you believe a child under 13 has an account, email <a href="mailto:privacy@shuvskate.com">privacy@shuvskate.com</a> and we will delete it.</p>
+        <h2>10. International transfers and security</h2>
+        <p>Our providers may process data in countries other than yours, including the United States. Where required we use approved transfer mechanisms such as the UK and EU standard contractual clauses. We protect data in transit and at rest with encryption and restrict internal access to the people who need it. No system is perfectly secure, and we will notify you and the relevant regulator if a breach affects you and the law requires it.</p>
+        <h2>11. Changes</h2>
+        <p>If we change this policy we will update the date at the top and, for material changes, tell you in the app before the change takes effect.</p>
+        <!-- Support: Apple and Google both ask for a support URL. Either https://YOUR-DOMAIN/privacy.html#support
+             or https://YOUR-DOMAIN/#contact (the home page form) works. -->
+        <h2 id="support">Support</h2>
+        <p>Something broken, a score that makes no sense, or a request to delete your account. Write to <a href="mailto:support@shuvskate.com">support@shuvskate.com</a> and we answer within two working days. Privacy and data requests go to <a href="mailto:privacy@shuvskate.com">privacy@shuvskate.com</a>.</p>
+        <div class="rule doc__end-rule"></div>
+        <p><a href="terms.html">Read the terms of service</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER: repeated on all 3 pages. ===== -->
+  <footer class="site-footer">
+    <div class="site-footer__links">
+      <a href="mailto:support@shuvskate.com">support@shuvskate.com</a>
+      <a href="mailto:privacy@shuvskate.com">privacy@shuvskate.com</a>
+      <a href="privacy.html">privacy</a>
+      <a href="terms.html">TOS</a>
+    </div>
+    <div class="site-footer__small">Shuv. Ages 13+.</div>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!doctype html>
+<!--
+  SHUV SITE: home page (index.html)
+  One responsive file for phone AND desktop. The phone layout is the default and
+  css/shuv.css switches to the desktop layout at 900px wide. There are no separate mobile files.
+  Shared across all 3 pages: header, phone menu and footer (marked below; keep them in sync),
+  plus css/shuv.css and js/shuv.js.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shuv | The sickest skateboard ollie coach for your phone</title>
+  <meta name="description" content="Prop your phone up and ollie. Rash grades your pop, slide and height the second you land, then hands you the clip with the score burned in. iOS and Android, ages 13+.">
+  <meta name="theme-color" content="#ffffff">
+  <!-- The canonical link and og:url must be absolute, so they name the
+       domain directly. If it ever changes, these and the addresses in the
+       footer are the places to look. -->
+  <link rel="canonical" href="https://shuvskate.com/">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <!-- People find Shuv through shared clips, so the share card is worth
+       composing rather than letting a platform pick an image off the page. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Shuv">
+  <meta property="og:title" content="Shuv — your free skateboard trick coach">
+  <meta property="og:description" content="Rash grades your ollies in real time with AI pose detection. Track your streak, clip your best tricks.">
+  <meta property="og:url" content="https://shuvskate.com/">
+  <meta property="og:image" content="https://shuvskate.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- WHAT GOOGLE CALLS THE SITE. The name above the link in search results
+       comes from this WebSite block (and og:site_name), not from <title> —
+       without it Google falls back to the bare domain. The name has to be
+       on the home page, and only the home page. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Shuv",
+        "alternateName": ["Shuv Skate", "shuvskate.com"],
+        "url": "https://shuvskate.com/"
+      },
+      {
+        "@type": "Organization",
+        "name": "Shuv",
+        "legalName": "Shuv LLC",
+        "url": "https://shuvskate.com/",
+        "logo": "https://shuvskate.com/assets/icon-512.png",
+        "email": "support@shuvskate.com",
+        "sameAs": [
+          "https://www.instagram.com/shuvskateapp",
+          "https://www.tiktok.com/@shuvskateapp",
+          "https://www.youtube.com/channel/UCwLE3QsAZjpoAPVVkqEh6Gg",
+          "https://x.com/shuvskateapp",
+          "https://www.facebook.com/shuvskateapp"
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="preload" href="assets/fonts/Michroma-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/shuv.css">
+  <script src="js/shuv.js" defer></script>
+</head>
+<body>
+<div class="page" id="top">
+
+  <!-- ===== HEADER: repeated on all 3 pages. Keep them in sync. =====================
+       On index.html the links are #sections; on the legal pages they are index.html#sections.
+       Phone: logo centred + hamburger on the right. Desktop (900px+): logo left, text links right. -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="#top"><img src="assets/logo.svg" alt="Shuv, advance skate technology" width="440" height="89"></a>
+      <nav class="nav-desktop" aria-label="Main">
+        <a class="jello" href="#top" aria-current="page">home</a>
+        <a class="jello" href="#tutorial">tutorial</a>
+        <a class="jello" href="#pro">pro</a>
+        <a class="jello" href="#safety">safety</a>
+        <a class="jello" href="#contact">contact</a>
+        <a class="jello" href="privacy.html">privacy</a>
+        <a class="jello" href="terms.html">TOS</a>
+      </nav>
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- ===== PHONE MENU: repeated on all 3 pages. ===================================
+       Slides in from the right when the hamburger is tapped (js/shuv.js, part 5). Hidden on desktop.
+       The backdrop is invisible; it only catches taps outside the menu to close it. -->
+  <div class="menu-backdrop" data-menu-close></div>
+  <div class="menu" id="menu" role="dialog" aria-label="Menu" aria-hidden="true" tabindex="-1">
+    <nav class="menu__nav" aria-label="Menu">
+      <a class="jello" href="#top" data-menu-close aria-current="page">home</a>
+      <a class="jello" href="#tutorial" data-menu-close>tutorial</a>
+      <a class="jello" href="#pro" data-menu-close>pro</a>
+      <a class="jello" href="#safety" data-menu-close>safety</a>
+      <a class="jello" href="#contact" data-menu-close>contact</a>
+      <a class="jello" href="privacy.html" data-menu-close>privacy</a>
+      <a class="jello" href="terms.html" data-menu-close>TOS</a>
+    </nav>
+    <button class="menu__close jello" type="button" data-menu-close>close</button>
+  </div>
+
+  <main id="main">
+
+    <!-- ===== HERO ===================================================================
+         Phone: Rash on top, headline below, store badges pinned to Rash's bottom right.
+         Desktop: Rash left, headline right, badges bottom left. -->
+    <section class="hero" aria-label="Intro">
+      <div class="hero__art">
+        <img src="assets/hero-rash.png" alt="Rash, scowling, grabbing his board mid air" width="1050" height="1412" fetchpriority="high">
+        <!-- TODO(launch): once the app is live, replace these two "Coming soon" boxes with the official
+             App Store and Google Play badges linking to the store listings. Both stores require their
+             own badge artwork (Apple: developer.apple.com/app-store/marketing/guidelines). -->
+        <div class="store-badges">
+          <div class="store-badge store-badge--fill"><span class="store-badge__kicker">Coming soon</span><span class="store-badge__name">App Store</span></div>
+          <div class="store-badge"><span class="store-badge__kicker">Coming soon</span><span class="store-badge__name">Google Play</span></div>
+        </div>
+      </div>
+      <div class="hero__copy">
+        <h1 class="outline hero__title">The sickest ollie coach for your phone!</h1>
+        <p class="hero__sub">Rash the bird will coach you!</p>
+      </div>
+    </section>
+
+    <!-- ===== POP. SLIDE. LAND. =====================================================
+         Card + illustrated scene (skater, three app UI pills, Rash, speech bubble).
+         Positions of the scene pieces live in css (section 7), measured from the mockup.
+         Phone: card on top, scene below. Desktop: scene left, card right. -->
+    <section class="pop">
+      <div class="card pop__card">
+        <h2 class="card__title">Pop. Slide. Land.</h2>
+        <p class="card__text">Prop your phone up. Ollie. Rash grades your pop, slide and your height the second you land your ollie, then hands you the clip with the score burned in. Track and improve your ollies with real time AI pose detection.</p>
+      </div>
+      <div class="pop-scene">
+        <img class="pop-scene__girl" src="assets/girl-ollie.png" alt="A skater popping an ollie" width="1150" height="1530" loading="lazy">
+        <img class="pop-scene__combo" src="assets/pill-combo.png" alt="1 combo" width="410" height="239" loading="lazy">
+        <img class="pop-scene__auto" src="assets/pill-auto.png" alt="Auto watching" width="664" height="105" loading="lazy">
+        <img class="pop-scene__rec" src="assets/pill-rec.png" alt="Recording" width="284" height="133" loading="lazy">
+        <img class="pop-scene__rash" src="assets/rash-yell.png" alt="Rash yelling up at her" width="854" height="1800" loading="lazy">
+        <div class="bubble"><p>I want more air! Snap harder and suck those feet up after it!</p></div>
+      </div>
+    </section>
+
+    <!-- ===== TUTORIAL (#tutorial) =====================================================
+         Three rows. Desktop alternates the picture side (tut-row--flip = picture right).
+         Phone: picture always above its card. -->
+    <section class="tutorial" id="tutorial">
+      <h2 class="outline outline--peri tutorial__title">Tutorial</h2>
+
+      <div class="tut-row tut-row--flip">
+        <div class="tut-row__art"><img src="assets/tut-solo.png" alt="A phone on a tripod and a phone leaning on a backpack" width="1096" height="1183" loading="lazy"></div>
+        <div class="card">
+          <h3 class="card__title">Prop or tripod</h3>
+          <p class="card__text">A tripod is nice. Your bag works fine. Get the phone upright and stable, four or five steps back.</p>
+        </div>
+      </div>
+
+      <div class="tut-row">
+        <div class="tut-row__art tut-row__art--narrow"><img src="assets/tut-centered.png" alt="Rash standing inside the dashed recording frame" width="1000" height="1370" loading="lazy"></div>
+        <div class="card">
+          <h3 class="card__title">Get in frame</h3>
+          <p class="card__text">Head to toes inside the dashed box, board included. Rash cannot grade what he cannot see.</p>
+        </div>
+      </div>
+
+      <div class="tut-row tut-row--flip">
+        <div class="tut-row__art tut-row__art--wide"><img src="assets/tut-friend.png" alt="A friend holding up a flip phone to film a skater rolling up behind them" width="1258" height="1687" loading="lazy"></div>
+        <div class="card">
+          <h3 class="card__title">Or hand it to a friend</h3>
+          <p class="card__text">Someone holding the phone works too. Tell them to keep still and keep you in the box.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE SHUV =========================================================== -->
+    <section class="why" aria-label="Why choose Shuv">
+      <h2 class="outline why__title">Why choose Shuv?</h2>
+      <div class="rule"></div>
+      <div><h3>Easy setup</h3><p>All you gotta do is point your camera to yourself and do ollies!</p></div>
+      <div class="rule"></div>
+      <div><h3>Can use offline</h3><p>The camera tracker works offline so you can practice ollies without internet!</p></div>
+      <div class="rule"></div>
+      <div><h3>Coaching</h3><p>Rash watches, critiques and ranks your ollie. He helps inform you how to improve your ollies!</p></div>
+      <div class="rule"></div>
+      <div><h3>Clipping</h3><p>Loved the ollie you did? Click the clip button to clip it! Shuv is always recording the last 30 seconds of your footage for you to clip!</p></div>
+      <div class="rule"></div>
+      <div><h3>Add friends</h3><p>Add other shuv users as friends! You can compete with other shuv users in the leaderboard for the highest ollie combos!</p></div>
+      <div class="rule"></div>
+    </section>
+
+    <!-- ===== SHUV PRO (#pro) ===========================================================
+         Keep the feature list and price in sync with the in-app paywall and the store
+         consoles. Price is $5.99/month, matching PRO_PRICE in lib/billing.js. -->
+    <section class="pro" id="pro">
+      <h2 class="outline pro__title">Shuv Pro</h2>
+      <div class="pro__row">
+        <div class="pro__art"><img src="assets/ollie-snap.png" alt="Rash snapping an ollie" width="1457" height="1425" loading="lazy"></div>
+        <div class="card pro__card">
+          <h3 class="card__title">Keep every clip you land</h3>
+          <table class="pro-table">
+            <thead>
+              <tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col" class="free-h">FREE</th><th scope="col" class="pro-col"><span class="pro-pill">PRO</span></th></tr>
+            </thead>
+            <tbody>
+            <tr><th scope="row">Coaching and trick detection</th><td><svg class="tick" viewBox="0 0 24 24" role="img" aria-label="Included"><path d="M4 13l5 5L20 6"></path></svg></td><td class="pro-col"><svg class="tick" viewBox="0 0 24 24" role="img" aria-label="Included"><path d="M4 13l5 5L20 6"></path></svg></td></tr>
+            <tr><th scope="row">Unlimited clip storage</th><td><span class="dash" role="img" aria-label="Not included"></span></td><td class="pro-col"><svg class="tick" viewBox="0 0 24 24" role="img" aria-label="Included"><path d="M4 13l5 5L20 6"></path></svg></td></tr>
+            <tr><th scope="row">Clips without a watermark</th><td><span class="dash" role="img" aria-label="Not included"></span></td><td class="pro-col"><svg class="tick" viewBox="0 0 24 24" role="img" aria-label="Included"><path d="M4 13l5 5L20 6"></path></svg></td></tr>
+            <tr><th scope="row">2 streak freezes every month</th><td><span class="dash" role="img" aria-label="Not included"></span></td><td class="pro-col"><svg class="tick" viewBox="0 0 24 24" role="img" aria-label="Included"><path d="M4 13l5 5L20 6"></path></svg></td></tr>
+            </tbody>
+          </table>
+          <div class="pro__price"><span class="pro__amount">$5.99</span><span class="pro__per">/ month</span></div>
+          <p class="pro__trial">First 4 days free</p>
+          <p class="pro__fine">Billed through your app store. You will not be charged today. We will remind you 2 days before your trial ends, and you can cancel anytime before then.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SAFETY (#safety) ==========================================================
+         Required content: injury risk, coaching aid not a safety system, don't look at the
+         phone while riding, 13+. Don't remove. -->
+    <section class="safety" id="safety">
+      <div class="safety__box">
+        <h2 class="outline outline--pink safety__title">Safety</h2>
+        <div class="rule"></div>
+        <h3 class="safety__sub">Skate safe</h3>
+        <ul class="safety__list">
+          <li>Skateboarding carries a real risk of serious injury. You skate at your own risk.</li>
+          <li>Shuv is a coaching aid, not a safety system. It cannot see hazards, traffic, or the crack in the ground behind you.</li>
+          <li>Never look at your phone while you are riding. Set it down, skate, then check the score.</li>
+          <li>Wear a helmet and pads.</li>
+          <li>Shuv is for ages 13 and up.</li>
+        </ul>
+        <img class="safety__art" src="assets/safety-fallen.png" alt="Rash, flat on the ground after a bail" width="1216" height="576" loading="lazy">
+      </div>
+    </section>
+
+    <!-- ===== CONTACT (#contact) ========================================================
+         This section can serve as the store "Support URL": https://YOUR-DOMAIN/#contact
+         It posts to the contact Edge Function; see js/shuv.js (part 7).
+         Without JavaScript it falls back to the mailto action below. -->
+    <section class="contact" id="contact">
+      <h2 class="outline contact__title">Contact</h2>
+      <div class="rule contact__rule"></div>
+      <form class="contact-form" id="contact-form" novalidate>
+        <label for="c-name">Name</label>
+        <input class="field" id="c-name" name="name" type="text" placeholder="Name" autocomplete="name" required>
+        <div class="rule contact-form__rule"></div>
+        <label for="c-email">Email</label>
+        <input class="field" id="c-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" required>
+        <label class="contact-form__gap" for="c-msg">Tell us what happened</label>
+        <textarea class="field" id="c-msg" name="message" rows="5" placeholder="How can we help?" required></textarea>
+        <!-- THE HONEYPOT. Hidden from people and from screen readers, and
+             skipped by tab. A bot that fills every input it finds trips it
+             and gets a cheerful success it can believe. -->
+        <div class="hp" aria-hidden="true">
+          <label for="c-web">Website</label>
+          <input id="c-web" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button class="btn jello" type="submit" id="contact-send">Send report</button>
+        <p class="contact-form__status" id="contact-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- Real profiles. target=_blank with rel="noopener noreferrer":
+           without noopener a new tab can reach back at this page through
+           window.opener, and noreferrer keeps the referrer out of it. -->
+      <div class="socials">
+        <a href="https://www.facebook.com/shuvskateapp" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="assets/social/facebook.svg" alt="" width="36" height="36" loading="lazy"></a>
+        <a href="https://x.com/shuvskateapp" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="assets/social/x.svg" alt="" width="32" height="32" loading="lazy"></a>
+        <a href="https://www.instagram.com/shuvskateapp" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="assets/social/instagram.svg" alt="" width="34" height="34" loading="lazy"></a>
+        <a href="https://www.tiktok.com/@shuvskateapp" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img src="assets/social/tiktok.svg" alt="" width="34" height="34" loading="lazy"></a>
+        <a href="https://www.youtube.com/channel/UCwLE3QsAZjpoAPVVkqEh6Gg" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="assets/social/youtube.svg" alt="" width="38" height="38" loading="lazy"></a>
+        <a href="mailto:support@shuvskate.com" aria-label="Email support"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1.5"></rect><path d="M3 6l9 7 9-7"></path></svg></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER: repeated on all 3 pages. ===== -->
+  <footer class="site-footer">
+    <div class="site-footer__links">
+      <a href="mailto:support@shuvskate.com">support@shuvskate.com</a>
+      <a href="mailto:privacy@shuvskate.com">privacy@shuvskate.com</a>
+      <a href="privacy.html">privacy</a>
+      <a href="terms.html">TOS</a>
+    </div>
+    <div class="site-footer__small">Shuv. Ages 13+.</div>
+  </footer>
+</div>
+</body>
+</html>

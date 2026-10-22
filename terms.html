@@ -1,0 +1,141 @@
+<!doctype html>
+<!--
+  SHUV SITE: terms of service (terms.html)
+  One responsive file for phone AND desktop. The phone layout is the default and
+  css/shuv.css switches to the desktop layout at 900px wide. There are no separate mobile files.
+  Shared across all 3 pages: header, phone menu and footer (marked below; keep them in sync),
+  plus css/shuv.css and js/shuv.js.
+  Must stay reachable at a stable public URL for the app store listings.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of service | Shuv</title>
+  <meta name="description" content="The agreement that covers your use of the Shuv app.">
+  <meta name="theme-color" content="#ffffff">
+  <!-- The canonical link and og:url must be absolute, so they name the
+       domain directly. If it ever changes, these and the addresses in the
+       footer are the places to look. -->
+  <link rel="canonical" href="https://shuvskate.com/terms.html">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <!-- People find Shuv through shared clips, so the share card is worth
+       composing rather than letting a platform pick an image off the page. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Shuv">
+  <meta property="og:title" content="Terms of service | Shuv">
+  <meta property="og:description" content="The agreement between you and Shuv.">
+  <meta property="og:url" content="https://shuvskate.com/terms.html">
+  <meta property="og:image" content="https://shuvskate.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/Michroma-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/shuv.css">
+  <script src="js/shuv.js" defer></script>
+</head>
+<body>
+<div class="page" id="top">
+
+  <!-- ===== HEADER: repeated on all 3 pages. Keep them in sync. =====================
+       On index.html the links are #sections; on the legal pages they are index.html#sections.
+       Phone: logo centred + hamburger on the right. Desktop (900px+): logo left, text links right. -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="index.html"><img src="assets/logo.svg" alt="Shuv, advance skate technology" width="440" height="89"></a>
+      <nav class="nav-desktop" aria-label="Main">
+        <a class="jello" href="index.html">home</a>
+        <a class="jello" href="index.html#tutorial">tutorial</a>
+        <a class="jello" href="index.html#pro">pro</a>
+        <a class="jello" href="index.html#safety">safety</a>
+        <a class="jello" href="index.html#contact">contact</a>
+        <a class="jello" href="privacy.html">privacy</a>
+        <a class="jello" href="terms.html" aria-current="page">TOS</a>
+      </nav>
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- ===== PHONE MENU: repeated on all 3 pages. ===================================
+       Slides in from the right when the hamburger is tapped (js/shuv.js, part 5). Hidden on desktop.
+       The backdrop is invisible; it only catches taps outside the menu to close it. -->
+  <div class="menu-backdrop" data-menu-close></div>
+  <div class="menu" id="menu" role="dialog" aria-label="Menu" aria-hidden="true" tabindex="-1">
+    <nav class="menu__nav" aria-label="Menu">
+      <a class="jello" href="index.html" data-menu-close>home</a>
+      <a class="jello" href="index.html#tutorial" data-menu-close>tutorial</a>
+      <a class="jello" href="index.html#pro" data-menu-close>pro</a>
+      <a class="jello" href="index.html#safety" data-menu-close>safety</a>
+      <a class="jello" href="index.html#contact" data-menu-close>contact</a>
+      <a class="jello" href="privacy.html" data-menu-close>privacy</a>
+      <a class="jello" href="terms.html" data-menu-close aria-current="page">TOS</a>
+    </nav>
+    <button class="menu__close jello" type="button" data-menu-close>close</button>
+  </div>
+
+  <main id="main">
+    <!-- ===== TERMS OF SERVICE ===========================================================
+         Stable public URL: https://YOUR-DOMAIN/terms.html (use it as the EULA / terms link in the stores). -->
+    <section class="doc-page">
+      <h1 class="outline doc-page__title">Terms of service</h1>
+      <div class="rule doc-page__rule"></div>
+      <div class="doc">
+        <!-- Operator and governing law filled in 7 Oct 2026 from the Maryland
+             formation record. Work still outstanding on this page is tracked in
+             the app repo, not here: this file is served to the public. -->
+        <p class="doc__date">Last updated: October 22nd 2026</p>
+        <p>These terms are an agreement between you and Shuv LLC covering your use of the Shuv app. By downloading or using Shuv you accept them. If you do not accept them, do not use the app.</p>
+        <h2>1. Eligibility</h2>
+        <p>You must be at least 13 years old to use Shuv. If you are under the age of majority where you live, you confirm that a parent or guardian has reviewed and agreed to these terms on your behalf.</p>
+        <h2>2. Your licence to use Shuv</h2>
+        <p>We grant you a personal, non exclusive, non transferable, revocable licence to install and use one copy of the app on devices you own or control, for your own non commercial use. You may not copy, resell, reverse engineer, decompile or attempt to extract our models or source code, remove notices, or use Shuv to build a competing product, except where the law expressly permits it.</p>
+        <h2>3. Your account</h2>
+        <p>Keep your login details to yourself and tell us promptly if someone else gets access. You are responsible for activity on your account. Give us accurate information and keep it current.</p>
+        <h2>4. Acceptable use</h2>
+        <p>Do not harass or abuse other users, impersonate anyone, manipulate scores or leaderboards by faking sessions or tampering with the app, upload unlawful or infringing content, film people who have not agreed to be filmed, scrape or automate access to our services, or interfere with the app's operation. We may remove content and suspend or close accounts that break these rules.</p>
+        <h2>5. Your clips and content</h2>
+        <p>Your clips are yours. We claim no ownership of them. Clips are processed and stored on your device unless you choose to share them. If you submit content directly to us, for example in a support message or a feature we may add for sharing, you grant us a limited licence to host and display it for the purpose of providing that feature, which you can end by deleting the content.</p>
+        <h2>6. Assumption of risk</h2>
+        <p>Skateboarding is a physical activity that carries a risk of serious injury or death. You choose to skate, and you do so at your own risk. Shuv gives feedback on how a trick looked to a pose model running on your phone. It is not coaching from a qualified instructor, it is not medical or safety advice, and it cannot assess whether a trick, a spot or your equipment is safe. Estimates of pop, slide and height are approximate and can be wrong. Do not use the app while riding. Do not attempt tricks beyond your ability because a score or a message encouraged you to. Rash's remarks are jokes, not instructions.</p>
+        <h2>7. Streaks, freezes and scores</h2>
+        <p>Streaks, freezes, combos and leaderboard positions have no monetary value, cannot be exchanged for anything, and may be adjusted or reset if we detect tampering or a technical fault. We may change how scoring works as the grading improves.</p>
+        <h2>8. Shuv Pro subscription</h2>
+        <p>Shuv is free to use. Shuv Pro is an optional paid subscription that adds unlimited clip storage, control over what is drawn on a clip, and five streak freezes each month.</p>
+        <p><strong>Price.</strong> $5.99 per month, or $34.99 per year. Prices are in US dollars and may differ in your local currency and with local taxes; the store shows you the exact amount before you confirm.</p>
+        <p><strong>Free trial.</strong> New subscribers get 4 days free. If you cancel before the trial ends you are not charged. We remind you 2 days before it ends.</p>
+        <p><strong>Auto renewal.</strong> A subscription renews automatically at the end of each period unless you cancel at least 24 hours before it ends. Your account is charged for renewal within 24 hours of the end of the current period.</p>
+        <p><strong>Cancelling.</strong> Manage or cancel your subscription in your App Store or Google Play account settings. We cannot cancel it for you, and deleting the app does not cancel it.</p>
+        <p><strong>Payment and refunds.</strong> Purchases are processed by Apple or Google, not by us. We never see or store your card details. Refunds are handled by whichever store you bought through, under that store's policy.</p>
+        <p><strong>Streak freezes.</strong> Freezes can also be bought individually. They are consumable: once spent they are gone, and they have no cash value and cannot be transferred or refunded once used.</p>
+        <h2>9. Availability and changes</h2>
+        <p>We may add, change or remove features, and we may suspend the service for maintenance. We will try to give notice of significant changes. Shuv is provided as it is, and we do not promise uninterrupted or error free operation.</p>
+        <h2>10. Disclaimers and liability</h2>
+        <p>To the fullest extent permitted by law, Shuv is provided without warranties of any kind, express or implied, including fitness for a particular purpose, and we are not liable for indirect, incidental or consequential loss, lost data, or personal injury arising from your use of the app. Where liability cannot be excluded, it is limited to the greater of the amount you paid us in the twelve months before the claim or ten US dollars. Nothing in these terms limits liability for death or personal injury caused by our negligence, for fraud, or for anything else that cannot lawfully be limited, and your statutory consumer rights are unaffected.</p>
+        <h2>11. Ending the agreement</h2>
+        <p>You may stop using Shuv and delete your account at any time. We may suspend or end your access if you breach these terms or if we stop offering the service. Sections that by their nature should survive, including assumption of risk, disclaimers and liability, continue to apply after termination.</p>
+        <h2>12. App store terms</h2>
+        <p>If you installed Shuv from the Apple App Store or Google Play, that store's own terms also apply. Apple and Google are not parties to this agreement, have no obligation to provide support for Shuv, and are not responsible for any claim relating to the app.</p>
+        <h2>13. Governing law</h2>
+        <p>These terms are governed by the laws of the State of Maryland, and disputes will be heard by the courts of the State of Maryland, without affecting any right you have to bring a claim in the courts of your own country of residence.</p>
+        <h2>14. Contact</h2>
+        <p>Questions about these terms go to <a href="mailto:support@shuvskate.com">support@shuvskate.com</a>.</p>
+        <div class="rule doc__end-rule"></div>
+        <p><a href="privacy.html">Read the privacy policy</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER: repeated on all 3 pages. ===== -->
+  <footer class="site-footer">
+    <div class="site-footer__links">
+      <a href="mailto:support@shuvskate.com">support@shuvskate.com</a>
+      <a href="mailto:privacy@shuvskate.com">privacy@shuvskate.com</a>
+      <a href="privacy.html">privacy</a>
+      <a href="terms.html">TOS</a>
+    </div>
+    <div class="site-footer__small">Shuv. Ages 13+.</div>
+  </footer>
+</div>
+</body>
+</html>

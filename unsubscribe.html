@@ -1,0 +1,132 @@
+<!doctype html>
+<!--
+  SHUV SITE: unsubscribe (unsubscribe.html)
+  One responsive file for phone AND desktop. The phone layout is the default and
+  css/shuv.css switches to the desktop layout at 900px wide. There are no separate mobile files.
+  Shared across all 3 pages: header, phone menu and footer (marked below; keep them in sync),
+  plus css/shuv.css and js/shuv.js.
+  THE EMAILS LINK HERE. Every lifecycle email carries {{UNSUBSCRIBE}}, which must
+  point at this page with a token: unsubscribe.html?t=<token>.
+
+  IT HAS TO WORK WITHOUT SIGNING IN. Somebody who cannot get into their account is
+  exactly the person who wants off the list, so the token in the URL is the whole
+  authorisation. That is also why it can only ever unsubscribe: a link that could
+  do anything else would be a link anyone could forge.
+
+  Required by law on marketing email in the UK, the EU and the US alike. It is NOT
+  on the password reset email, deliberately — that one is transactional, and a reset
+  nobody can receive is a locked account.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unsubscribe | Shuv</title>
+  <meta name="description" content="Stop receiving Shuv streak reminder emails.">
+  <meta name="theme-color" content="#ffffff">
+  <!-- The canonical link and og:url must be absolute, so they name the
+       domain directly. If it ever changes, these and the addresses in the
+       footer are the places to look. -->
+  <link rel="canonical" href="https://shuvskate.com/unsubscribe.html">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <!-- An unsubscribe page has no business in a search index. -->
+  <meta name="robots" content="noindex">
+  <!-- People find Shuv through shared clips, so the share card is worth
+       composing rather than letting a platform pick an image off the page. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Shuv">
+  <meta property="og:title" content="Unsubscribe | Shuv">
+  <meta property="og:description" content="Stop receiving Shuv streak reminder emails.">
+  <meta property="og:url" content="https://shuvskate.com/unsubscribe.html">
+  <meta property="og:image" content="https://shuvskate.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/Michroma-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/shuv.css">
+  <script src="js/shuv.js" defer></script>
+</head>
+<body>
+<div class="page" id="top">
+
+  <!-- ===== HEADER: repeated on all 3 pages. Keep them in sync. =====================
+       On index.html the links are #sections; on the legal pages they are index.html#sections.
+       Phone: logo centred + hamburger on the right. Desktop (900px+): logo left, text links right. -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="index.html"><img src="assets/logo.svg" alt="Shuv, advance skate technology" width="440" height="89"></a>
+      <nav class="nav-desktop" aria-label="Main">
+        <a class="jello" href="index.html">home</a>
+        <a class="jello" href="index.html#tutorial">tutorial</a>
+        <a class="jello" href="index.html#pro">pro</a>
+        <a class="jello" href="index.html#safety">safety</a>
+        <a class="jello" href="index.html#contact">contact</a>
+        <a class="jello" href="privacy.html" aria-current="page">privacy</a>
+        <a class="jello" href="terms.html">TOS</a>
+      </nav>
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- ===== PHONE MENU: repeated on all 3 pages. ===================================
+       Slides in from the right when the hamburger is tapped (js/shuv.js, part 5). Hidden on desktop.
+       The backdrop is invisible; it only catches taps outside the menu to close it. -->
+  <div class="menu-backdrop" data-menu-close></div>
+  <div class="menu" id="menu" role="dialog" aria-label="Menu" aria-hidden="true" tabindex="-1">
+    <nav class="menu__nav" aria-label="Menu">
+      <a class="jello" href="index.html" data-menu-close>home</a>
+      <a class="jello" href="index.html#tutorial" data-menu-close>tutorial</a>
+      <a class="jello" href="index.html#pro" data-menu-close>pro</a>
+      <a class="jello" href="index.html#safety" data-menu-close>safety</a>
+      <a class="jello" href="index.html#contact" data-menu-close>contact</a>
+      <a class="jello" href="privacy.html" data-menu-close aria-current="page">privacy</a>
+      <a class="jello" href="terms.html" data-menu-close>TOS</a>
+    </nav>
+    <button class="menu__close jello" type="button" data-menu-close>close</button>
+  </div>
+
+  <main id="main">
+    <!-- ===== PRIVACY POLICY ============================================================
+         Stable public URL for App Store Connect and Google Play Console:
+         https://YOUR-DOMAIN/privacy.html   Don't rename or move this file once it has been submitted. -->
+    <section class="doc-page">
+      <h1 class="outline outline--pink doc-page__title doc-page__title--long">Unsubscribe</h1>
+      <div class="rule doc-page__rule"></div>
+      <div class="doc">
+        <!-- No placeholders on this page; the operator details live on
+             privacy.html and terms.html. -->
+        <p id="unsub-status" class="doc__date">Checking your link…</p>
+
+        <div id="unsub-ok" hidden>
+          <p>You are unsubscribed. We will not send you any more streak reminders.</p>
+          <p>This does not touch your account, your streak or your clips, and it does not stop the emails we have to send you — a password reset, for instance, still has to arrive or you could not get back in.</p>
+          <p>You can turn reminders back on any time in the app, under <strong>Settings &rarr; Email reminders</strong>.</p>
+        </div>
+
+        <div id="unsub-bad" hidden>
+          <p>That link did not work. It may have been broken by your email app, or it may have already been used.</p>
+          <p>You can turn reminders off in the app under <strong>Settings &rarr; Email reminders</strong>, which does the same thing. If you would rather we did it for you, email <a href="mailto:support@shuvskate.com">support@shuvskate.com</a> from the address you want unsubscribed.</p>
+        </div>
+
+        <h2 id="support">Support</h2>
+        <p>Something broken, a score that makes no sense, or a request to delete your account. Write to <a href="mailto:support@shuvskate.com">support@shuvskate.com</a> and we answer within two working days. Privacy and data requests go to <a href="mailto:privacy@shuvskate.com">privacy@shuvskate.com</a>.</p>
+        <div class="rule doc__end-rule"></div>
+        <p><a href="terms.html">Read the terms of service</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER: repeated on all 3 pages. ===== -->
+  <footer class="site-footer">
+    <div class="site-footer__links">
+      <a href="mailto:support@shuvskate.com">support@shuvskate.com</a>
+      <a href="mailto:privacy@shuvskate.com">privacy@shuvskate.com</a>
+      <a href="privacy.html">privacy</a>
+      <a href="terms.html">TOS</a>
+    </div>
+    <div class="site-footer__small">Shuv. Ages 13+.</div>
+  </footer>
+</div>
+</body>
+</html>

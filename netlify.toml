@@ -1,0 +1,67 @@
+# =============================================================================
+# NETLIFY CONFIG for the shuvskate.com deploy.
+#
+# This file sits at the ROOT of the site repo, not of the app repo. The site
+# repo is produced by `npm run site:deploy`, which splits shuv-mp/web out of
+# the main repository with git subtree — so what Netlify clones is these 45
+# files and nothing else. See docs/HOSTING.md.
+#
+# publish = "." because the repo IS the web folder. There is no build step:
+# plain HTML, CSS and JS, which is the whole reason this site is cheap to
+# host and impossible to break at deploy time.
+# =============================================================================
+
+[build]
+  publish = "."
+  command = ""
+
+# -----------------------------------------------------------------------------
+# Headers.
+#
+# DELIBERATELY NO Content-Security-Policy. The contact form and the
+# unsubscribe page both fetch supabase.co Edge Functions from the browser
+# (web/js/shuv.js), and a CSP written without that in mind silently breaks
+# both — the page looks fine and the form just stops working. If a CSP is
+# ever added, connect-src has to name the Supabase project URL, and the
+# contact form must be retested against the live function, not assumed.
+# -----------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # The site asks for no device permissions at all; say so explicitly.
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    # Clickjacking. Nothing here is meant to be framed by anyone.
+    X-Frame-Options = "DENY"
+
+# A week, not a year, and not immutable. These filenames are stable and
+# hand-managed — there is no content hash in them — so a long cache
+# strands viewers on an old image the next time one is redrawn.
+#
+# THIS WAS A WEEK AND THE WEEK BIT. The comment here used to argue that
+# 604800 was "long enough to matter and short enough to recover from",
+# which is a fine sentence and was wrong in practice: the friend
+# illustration was replaced, deployed correctly, verified byte for byte
+# on the server, and the browser kept showing the old one. Nothing was
+# broken and there was nothing to debug, which is the worst kind of
+# wrong.
+#
+# An hour instead. Netlify sends an ETag, so a revalidation on an
+# unchanged image is a 304 and costs almost nothing; the only thing a
+# longer max-age buys is skipping that round trip. Worth raising again
+# once the art stops moving — after launch, not before.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Same reasoning, and more pressing: these are fetched by mail clients,
+# which cache far harder than browsers and ignore most of what we say.
+# Gmail in particular proxies and caches images on its own servers, so
+# an image that goes out wrong can stay wrong past any header we set.
+# The cigarette version of rash-hero sat here for a fortnight.
+[[headers]]
+  for = "/email-assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
